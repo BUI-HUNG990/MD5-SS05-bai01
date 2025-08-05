@@ -1,0 +1,22 @@
+CREATE DATABASE IF NOT EXISTS product_management;
+USE product_management;
+
+CREATE TABLE IF NOT EXISTS customer (
+                                        id INT AUTO_INCREMENT PRIMARY KEY,
+                                        username VARCHAR(255) NOT NULL,
+                                        password VARCHAR(255) NOT NULL,
+                                        phone VARCHAR(20),
+                                        address VARCHAR(255),
+                                        gender VARCHAR(10),
+                                        email VARCHAR(100),
+                                        role ENUM('ADMIN', 'USER') NOT NULL
+);
+
+INSERT INTO customer (username, password, phone, address, gender, email, role) VALUES
+   ('admin', 'admin123', '0123456789', 'Hanoi', 'Male', 'admin@gmail.com', 'ADMIN'),
+   ('user', 'user123', '0987654321', 'HCM', 'Female', 'user@gmail.com', 'USER');
+
+SELECT * FROM customer;
+
+USE product_management;
+SELECT * FROM customer WHERE username = 'admin';
